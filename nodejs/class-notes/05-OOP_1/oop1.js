@@ -4,33 +4,84 @@
 ------------------------------------------------------- */
 
 // Direkt obje isimlendirmede PascalCase veya camelCase yapı kullanırız.:
-const exampleObject = {
+// const exampleObject = {
 
-    propertyName: 'value', // property, attribute, field
-    propertyArray : [],
-    propertyObject: {},
+//     propertyName: 'value', // property, attribute, field
+//     propertyArray : [],
+//     propertyObject: {},
 
-    // Obje içindeki fonsiyonlara Method denir:
-    methodName: function () {
-        return 'this is a method'
-    },
+//     // Obje içindeki fonsiyonlara Method denir:
+//     methodName: function () {
+//         return 'this is a method'
+//     },
     
-    // Alternatif yazım:
-    methodAlternative () {
-        return 'method-2'
+//     // Alternatif yazım:
+//     methodAlternative () {
+//         return 'method-2'
+//     },
+
+// }
+// // Nokta notasyonu ile property çağırlabilir:
+// console.log( exampleObject.propertyName )
+// console.log( exampleObject.methodName() )
+
+/* ------------------------------------------------------- *
+//* Object Declaration:
+
+const Car = {
+
+    brand: 'Ford',
+    model: 'Mustang',
+    year: 1967,
+    isAutoGear: true,
+    colors: [ 'red', 'white' ],
+    details: {
+        color1: 'red',
+        color2: 'white',
+        engineSize: 5000
     },
+    startEngine: function(param = '1') {
+        console.log(param)
+        return 'Engine started.'
+    }
 
 }
-// Nokta notasyonu ile property çağırlabilir:
-console.log( exampleObject.propertyName )
-console.log( exampleObject.methodName() )
+
+// console.log( Car.brand )
+// console.log( Car.colors[1] )
+// console.log( Car.details.engineSize )
+// console.log( Car.startEngine() )
+// console.log( Car.startEngine('2') )
+
+// Alternatif:
+console.log( Car['brand'] )
+console.log( Car['colors'][1] )
+console.log( Car['details']['engineSize'] )
+console.log( Car['startEngine']() )
 
 /* ------------------------------------------------------- */
+//* "THIS" Keyword:
+
+const Car = {
+
+    brand: 'Ford',
+    model: 'Mustang',
+    year: 1967,
+    isAutoGear: true,
+    colors: [ 'red', 'white' ],
+    details: {
+        color1: 'red',
+        color2: 'white',
+        engineSize: 5000
+    },
+    startEngine: function(param = '1') {
+        console.log(param)
+        return 'Engine started.'
+    }
+
+}
 
 
-
-
-/* ------------------------------------------------------- */
 /* ------------------------------------------------------- */
 /* ------------------------------------------------------- */
 /* ------------------------------------------------------- */
