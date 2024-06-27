@@ -195,7 +195,7 @@ const Ford = new Car('Ford', 'Mustang', 1967, 'Car')
 console.log(Ford)
 console.log(Ford.getDetails())
 
-/* ------------------------------------------------------- */
+/* ------------------------------------------------------- *
 //? Access Modifiers:
 //? - PUBLIC: Genel erişime açık. (Parent: Yes, Child: Yes, Instance: Yes)
 //? - _PROTECTED: Sadece tanımlı olduğu class ve Inherit edilen child-class erişebilir. (Parent: Yes, Child: Yes, Instance: No) (JS Desteklemez.)
@@ -256,7 +256,49 @@ const BUYUK_HARF_ISIMLENDIRME = Bu bir constant değişkendir. Developer olarak 
 const _alttanTireIleBaslayan = BU bir proctected değişkendir. Developer olarak buna dokunma (erişme bile)
 
 /* ------------------------------------------------------- */
+//? GETTER & SETTER METHODS: Görevi veri getirme (getter) ve veri güncelleme (setter) olan metodlardır.
+//? "STATIC" KEYWORD: Class'dan direkt erişim. (Instance erişemez.)
 
+class Car {
+
+    isRunning = false
+    #price = 99
+
+    constructor(brand, model, year) {
+        this.brand = brand
+        this.model = model
+        this.year = year
+
+    }
+
+    runEngine() {
+        this.isRunning = true
+        console.log('Engine started')
+        return this.isRunning
+    }
+
+    get getPrice() {
+        console.log('Fiyat yazılıyor:')
+        return this.#price
+    }
+
+    set setPrice(price) {
+        console.log('Fiyat güncellendi.')
+        this.#price = price
+    }
+
+}
+
+const Ford = new Car('Ford', 'Mustang', 1967)
+console.log(Ford)
+// console.log(Ford.price) // Private olduğu için erişilemez.
+// console.log(Ford.getPrice()) // Normal Method
+console.log(Ford.getPrice) // Getter methodlar bir property gibi çağrılır. (parantez yok)
+// Ford.setPrice(80000) // Normal method
+Ford.setPrice = 80000 // Setter methodlar bir propertyy gibi güncellenebilir.
+console.log(Ford.getPrice)
+
+console.log( Car.runEngine() )
 
 
 /* ------------------------------------------------------- */
