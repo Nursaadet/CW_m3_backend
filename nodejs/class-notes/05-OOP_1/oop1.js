@@ -208,5 +208,13 @@ const carConstructor = function (brand, model, year = 2000) {
     }
 
 }
+//* new ile oluşturulan objeler PascalCase ile isimlendirilir:
+const Ford = new carConstructor('Ford', 'Mustang', 1967)
+console.log(Ford)
+
+const Mercedes = new carConstructor('Mercedes', 'CLK200', 2015)
+console.log(Mercedes)
+console.log(Mercedes.brand)
+console.log(Mercedes.startEngine())
 
 /* ------------------------------------------------------- */
