@@ -78,3 +78,23 @@ function test3() {
 // module.exports.newVar = 'new-value'
 
 /* -------------------------------------------- */
+// Object Export -4:
+
+module.exports = {
+
+    test1: function() {
+        console.log('test1 çalıştı.')
+    },
+    
+    test2: function() {
+        console.log('test2 çalıştı.')
+    },
+    
+    test3: function() {
+        console.log('test3 çalıştı.')
+    },
+
+    newVar: 'extra value'
+}
+
+/* -------------------------------------------- */
