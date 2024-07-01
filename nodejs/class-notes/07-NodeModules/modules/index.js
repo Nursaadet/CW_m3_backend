@@ -58,3 +58,23 @@ function test3() {
 // module.exports.test3 = test3
 
 
+/* -------------------------------------------- */
+// Module export -> function expression
+
+// Object Export -3:
+
+// module.exports.test1 = function() {
+//     console.log('test1 çalıştı.')
+// }
+
+// module.exports.test2 = function() {
+//     console.log('test2 çalıştı.')
+// }
+
+// module.exports.test3 = function() {
+//     console.log('test3 çalıştı.')
+// }
+
+// module.exports.newVar = 'new-value'
+
+/* -------------------------------------------- */
