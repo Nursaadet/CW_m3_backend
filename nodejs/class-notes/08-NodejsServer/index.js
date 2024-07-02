@@ -48,3 +48,31 @@ const app = http.createServer((req, res) => {
 app.listen(8000, () => console.log('http://127.0.0.1:8000'))
 
 /* -------------------------------------- */
+
+const app = http.createServer((req, res) => {
+
+        if (req.url == '/api') {
+    
+            // res.end('API') // res.end işlemi blocklar. devam eden kodlar çalışmaz.
+    
+            // res.write('Yazı-1')
+            // res.write('Yazı-2')
+            // res.write('Yazı-3')
+            // res.write('Yazı-4')
+            // res.end()
+            
+            if (req.method == 'GET') {
+    
+                // setHeader (single headers)
+                res.setHeader('title', 'value')
+                // writeHead(statusCode, {  multi headers })
+                // Sonda yeralması gereken methodlardandır.
+                // res.writeHead(400, {
+                //     'content-encoding': 'utf-8',
+                //     'multi-headers': 'test',
+                // })
+                // writeHead'de 2. parametre olarak statusMessage gönderebiliriz:
+                res.writeHead(400, 'Hatali Islem', {
+                    'content-encoding': 'utf-8',
+                    'multi-headers': 'test',
+                })
