@@ -76,3 +76,28 @@ const app = http.createServer((req, res) => {
                     'content-encoding': 'utf-8',
                     'multi-headers': 'test',
                 })
+
+                const obj = {
+                        result: true,
+                        message: 'Hello World'
+                    }
+                    res.write(JSON.stringify(obj))
+                    
+                    // En sonda yer almalıdır:
+                    res.end()
+        
+                } else {
+        
+                    res.end('Wrong Method')
+                }
+        
+            } else {
+        
+                res.end('HTML')
+            }
+        
+        }).listen(8000, () => console.log('http://127.0.0.1:8000'))
+        
+        /* -------------------------------------- */
+        /* -------------------------------------- */
+        /* -------------------------------------- */
