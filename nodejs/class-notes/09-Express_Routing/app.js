@@ -10,7 +10,7 @@
 const express = require('express')
 const app = express()
 
-/* ----------------------------------------------- */
+/* ----------------------------------------------- *
 // http.createServer((req, res) => {
 //     if (req.url = '/') {
 //         if (req.method == 'GET') {
@@ -60,6 +60,21 @@ app.delete('/', (req, res) => {
     res.end('app.delete çalıştı')  
 })
 /* ----------------------------------------------- */
+
+// app.get('/', (req, res) => { res.end('app.get çalıştı')})
+// app.post('/', (req, res) => { res.end('app.post çalıştı')})
+// app.put('/', (req, res) => { res.end('app.put çalıştı')})
+// app.delete('/', (req, res) => { res.end('app.delete çalıştı')})
+
+// ALL METHOD:
+// app.all('/', (req, res) => { res.end('app.all çalıştı')})
+
+// ROUTE METHOD:
+app.route('/')
+    .get((req, res) => { res.end('app.get çalıştı')})
+    .post((req, res) => { res.end('app.post çalıştı')})
+    .put((req, res) => { res.end('app.put çalıştı')})
+    .delete((req, res) => { res.end('app.delete çalıştı')})
 
 
 
