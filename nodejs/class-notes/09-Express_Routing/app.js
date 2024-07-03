@@ -130,13 +130,24 @@ app.get('/*', (req, res) => {
 
 // })
 
-app.get('/user/:userId', (req, res) => {
+// app.get('/user/:userId([0-9]+)', (req, res) => {
+// app.get('/user/:userId(\\d+)', (req, res) => {
 
-    res.send({
-        userId: req.params.userId,
-    })
+//     res.send({
+//         path: req.path,
+//         userId: req.params.userId,
+//         abc: req.query.abc,
+//     })
 
-})
+// })
+
+/* ----------------------------------------------- */
+// Response.Methods:
+
+// sendStatus:
+app.get('/', (req, res) => {  })
+
+
 
 /* ----------------------------------------------- */
 // dotenv çalıştır:
@@ -144,8 +155,3 @@ require('dotenv').config()
 const PORT = process.env.PORT || 8000
 
 app.listen(PORT, () => console.log('Running: http://127.0.0.1:' + PORT))
-
-/* ----------------------------------------------- */
-/* ----------------------------------------------- */
-/* ----------------------------------------------- */
-/* ----------------------------------------------- */
