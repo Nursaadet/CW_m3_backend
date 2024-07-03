@@ -93,7 +93,7 @@ app.delete('/', (req, res) => {
 // app.get(/xyz$/, (req, res) => { res.send('now in here: /xyz$/')}) // xyz ile biten url'yi kabul et.
 // app.get(/^\/xyz/, (req, res) => { res.send('now in here: /^\/xyz/')}) // xyz ile biten url'yi kabul et.
 
-/* ----------------------------------------------- */
+/* ----------------------------------------------- *
 // URL Parameters:
 
 app.get('/*', (req, res) => {
@@ -103,18 +103,30 @@ app.get('/*', (req, res) => {
             protocol: req.protocol,
             secure: req.secure,
             hostname: req.hostname,
-            baseUrl: req.baseUrl,
+            // baseUrl: req.baseUrl, // artık req.url geçerli
             params: req.params,
-            query: req.query,
-            path: req.path,
-            originalUrl: req.originalUrl,
-            url: req.url
+            query: req.query, // Sadece query verir. (path vermez.)
+            path: req.path, // Sadece subfolder (/name/name1/name2) verir. (query vermez)
+            originalUrl: req.originalUrl, // URL'yi tümüyle verir.
+            url: req.url // Router URL'sini verir.
         }
     })
 
 })
 
 
+
+/* ----------------------------------------------- */
+
+app.get('/user/:userId', (req, res) => {
+
+    res.send({
+        url: {
+            params: req.params,
+        }
+    })
+
+})
 
 /* ----------------------------------------------- */
 // dotenv çalıştır:
