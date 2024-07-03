@@ -79,8 +79,8 @@ app.delete('/', (req, res) => {
 /* ----------------------------------------------- */
 // URL (path) Options:
 
-app.get('/', (req, res) => { res.send('burası anasayfa')}) // / == Anasayfa (home path)
-app.get('/path', (req, res) => { res.send('burası "path" sayfası')}) // "/path" == "/path/"
+// app.get('/', (req, res) => { res.send('burası anasayfa')}) // / == Anasayfa (home path)
+// app.get('/path', (req, res) => { res.send('burası "path" sayfası')}) // "/path" == "/path/"
 
 // Express Joker karakterleri destekler: (RexExp kuralları ile aynı)
 // app.get('/abc(x?)123', (req, res) => { res.send('now in here: /abc(x?)123')}) // abc123 == abcx123
@@ -92,6 +92,29 @@ app.get('/path', (req, res) => { res.send('burası "path" sayfası')}) // "/path
 // app.get(/xyz/, (req, res) => { res.send('now in here: /xyz/')}) // içinde xyz geçen url'yi kabul et.
 // app.get(/xyz$/, (req, res) => { res.send('now in here: /xyz$/')}) // xyz ile biten url'yi kabul et.
 // app.get(/^\/xyz/, (req, res) => { res.send('now in here: /^\/xyz/')}) // xyz ile biten url'yi kabul et.
+
+/* ----------------------------------------------- */
+// URL Parameters:
+
+app.get('/*', (req, res) => {
+
+    res.send({
+        url: {
+            protocol: req.protocol,
+            secure: req.secure,
+            hostname: req.hostname,
+            baseUrl: req.baseUrl,
+            params: req.params,
+            query: req.query,
+            path: req.path,
+            originalUrl: req.originalUrl,
+            url: req.url
+        }
+    })
+
+})
+
+
 
 /* ----------------------------------------------- */
 // dotenv çalıştır:
