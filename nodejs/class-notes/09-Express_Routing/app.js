@@ -118,12 +118,22 @@ app.get('/*', (req, res) => {
 
 /* ----------------------------------------------- */
 
+// app.get('/user/:userId/config/:process', (req, res) => {
+
+//     res.send({
+//         userId: req.params.userId,
+//         process: req.params.process,
+//         url: {
+//             params: req.params,
+//         }
+//     })
+
+// })
+
 app.get('/user/:userId', (req, res) => {
 
     res.send({
-        url: {
-            params: req.params,
-        }
+        userId: req.params.userId,
     })
 
 })
