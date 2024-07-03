@@ -10,6 +10,7 @@
 const express = require('express')
 const app = express()
 
+/* ----------------------------------------------- */
 // http.createServer((req, res) => {
 //     if (req.url = '/') {
 //         if (req.method == 'GET') {
@@ -20,7 +21,34 @@ const app = express()
 // })
 
 app.get('/', (req, res) => {
-    res.end('app.get çalıştı')  
+    // res.end('app.get çalıştı')
+    // const obj = {
+    //     error: false,
+    //     message: 'Welcome'
+    // }
+    // res.end(JSON.stringify(obj))
+
+    // SEND METHOD:
+    // res.send('Welcome to World')
+    // res.send({
+    //     error: false,
+    //     message: 'Welcome'
+    // })
+    // res.send([0, 1, 2])
+
+    // STATUS METHOD:
+    // res.status(404)
+    // res.send({
+    //     error: false,
+    //     message: 'Page Not Found'
+    // })
+
+    // Output:
+    res.status(404).send({
+        error: false,
+        message: 'Page Not Found'
+    })
+    
 })
 app.post('/', (req, res) => {
     res.end('app.post çalıştı')  
@@ -31,7 +59,12 @@ app.put('/', (req, res) => {
 app.delete('/', (req, res) => {
     res.end('app.delete çalıştı')  
 })
+/* ----------------------------------------------- */
 
+
+
+
+/* ----------------------------------------------- */
 // dotenv çalıştır:
 require('dotenv').config()
 const PORT = process.env.PORT || 8000
