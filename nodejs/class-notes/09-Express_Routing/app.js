@@ -19,6 +19,19 @@ const app = express()
 //     }
 // })
 
+app.get('/', (req, res) => {
+    res.end('app.get çalıştı')  
+})
+app.post('/', (req, res) => {
+    res.end('app.post çalıştı')  
+})
+app.put('/', (req, res) => {
+    res.end('app.put çalıştı')  
+})
+app.delete('/', (req, res) => {
+    res.end('app.delete çalıştı')  
+})
+
 // dotenv çalıştır:
 require('dotenv').config()
 const PORT = process.env.PORT || 8000
