@@ -77,6 +77,22 @@ app.delete('/', (req, res) => {
 //     .delete((req, res) => { res.end('app.delete çalıştı')})
 
 /* ----------------------------------------------- */
+// URL (path) Options:
+
+app.get('/', (req, res) => { res.send('burası anasayfa')}) // / == Anasayfa (home path)
+app.get('/path', (req, res) => { res.send('burası "path" sayfası')}) // "/path" == "/path/"
+
+// Express Joker karakterleri destekler: (RexExp kuralları ile aynı)
+// app.get('/abc(x?)123', (req, res) => { res.send('now in here: /abc(x?)123')}) // abc123 == abcx123
+// app.get('/abc(x+)123', (req, res) => { res.send('now in here: /abc(x+)123')}) // abcx..x123
+// app.get('/abc123(x+)', (req, res) => { res.send('now in here: /abc123(x+)')}) // abcx..x123
+// app.get('/abc*123', (req, res) => { res.send('now in here: /abc*123')}) // abc123 == abc(ANY)123
+
+// Express RegularExpression destekler:
+// app.get(/xyz/, (req, res) => { res.send('now in here: /xyz/')}) // içinde xyz geçen url'yi kabul et.
+// app.get(/xyz$/, (req, res) => { res.send('now in here: /xyz$/')}) // xyz ile biten url'yi kabul et.
+// app.get(/^\/xyz/, (req, res) => { res.send('now in here: /^\/xyz/')}) // xyz ile biten url'yi kabul et.
+
 /* ----------------------------------------------- */
 // dotenv çalıştır:
 require('dotenv').config()
