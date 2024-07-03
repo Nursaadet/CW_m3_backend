@@ -70,15 +70,13 @@ app.delete('/', (req, res) => {
 // app.all('/', (req, res) => { res.end('app.all çalıştı')})
 
 // ROUTE METHOD:
-app.route('/')
-    .get((req, res) => { res.end('app.get çalıştı')})
-    .post((req, res) => { res.end('app.post çalıştı')})
-    .put((req, res) => { res.end('app.put çalıştı')})
-    .delete((req, res) => { res.end('app.delete çalıştı')})
+// app.route('/')
+//     .get((req, res) => { res.end('app.get çalıştı')})
+//     .post((req, res) => { res.end('app.post çalıştı')})
+//     .put((req, res) => { res.end('app.put çalıştı')})
+//     .delete((req, res) => { res.end('app.delete çalıştı')})
 
-
-
-
+/* ----------------------------------------------- */
 /* ----------------------------------------------- */
 // dotenv çalıştır:
 require('dotenv').config()
