@@ -10,6 +10,15 @@
 const express = require('express')
 const app = express()
 
+// http.createServer((req, res) => {
+//     if (req.url = '/') {
+//         if (req.method == 'GET') {
+//         } else {
+//         }
+//     } else if (req.url = '/second') {
+//     }
+// })
+
 // dotenv çalıştır:
 require('dotenv').config()
 const PORT = process.env.PORT || 8000
