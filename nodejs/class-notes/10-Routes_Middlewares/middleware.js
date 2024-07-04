@@ -81,38 +81,6 @@ app.get('/', (req, res) => {
 /* ------------------------------------------------------- *
 
 app.get('/', (req, res, next) => {
-
-    console.log('middleware çalıştı.')
-
-    // Bir sonraki controller'a data gönderme:
-    // req:
-    req.message = 'Hello world from middleware'
-    // res:
-    if (req.query.course == 'clarusway') {
-        res.message = 'Doğru yerdesiniz.'
-    } else {
-        res.message = 'acaba doğru yerde misiniz?'
-    }
-
-    next()
-
-})
-
-// Route-Path:
-app.get('/', (req, res) => {
-
-    console.log('route-path çalıştı.')
-
-    res.send({
-        // message: req.message
-        message: res.message
-    })
-
-})
-
-/* ------------------------------------------------------- *
-
-app.get('/', (req, res, next) => {
     console.log('middleware-1 çalıştı.')
     req.message1 = 'middleware-1'
     next()
@@ -194,3 +162,31 @@ app.get('/', (req, res) => {
 // })
 
 /* ------------------------------------------------------- */
+// Ayrı dosyadan çağırma:
+
+// const middlewares = require('./middlewares/') // Array
+// const { middleware1, middleware2, middleware3 } = require('./middlewares/') // Object
+
+// app.get('/*', middleware1, middleware2, middleware3, (req, res) => {
+
+//     res.send({
+//         message: 'middlewares/index',
+//     })
+
+// })
+
+const middlewares = require('./middlewares/') // Object
+
+app.get('/*', middlewares.middleware1, middlewares.middleware2, middlewares.middleware3, (req, res) => {
+
+    res.send({
+        message: 'middlewares/index',
+    })
+
+})
+
+
+
+/* ------------------------------------------------------- */
+
+app.listen(PORT, () => console.log("Running: http://127.0.0.1:" + PORT));
