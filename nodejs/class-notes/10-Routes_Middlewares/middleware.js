@@ -46,5 +46,37 @@ app.get('/', (req, res) => {
 
 })
 
+/* ------------------------------------------------------- *
+
+app.get('/', (req, res, next) => {
+
+    console.log('middleware çalıştı.')
+
+    // Bir sonraki controller'a data gönderme:
+    // req:
+    req.message = 'Hello world from middleware'
+    // res:
+    if (req.query.course == 'clarusway') {
+        res.message = 'Doğru yerdesiniz.'
+    } else {
+        res.message = 'acaba doğru yerde misiniz?'
+    }
+
+    next()
+
+})
+
+// Route-Path:
+app.get('/', (req, res) => {
+
+    console.log('route-path çalıştı.')
+
+    res.send({
+        // message: req.message
+        message: res.message
+    })
+
+})
+
 /* ------------------------------------------------------- */
 
