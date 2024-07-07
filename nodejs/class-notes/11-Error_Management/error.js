@@ -102,3 +102,26 @@ app.get('/async', async (req, res, next) => {
 
 })
 
+/* ------------------------------------------------------- */
+// ErrorHandler 4 parametreli olmak zorunda. Hata yakalayıcı parametre 1. parametredir.
+// ErrorHandler en sonda yer almalı (sayfanın en altında)
+
+const errorHandler = (error, req, res, next) => {
+
+    console.log('ErrorHandler çalıştı.')
+
+    const statusCode = res?.errorStatusCode || 500
+
+    res.status(statusCode).send({
+        error: true,
+        message: error.message, // Hata mesajı
+        cause: error.cause, // Hata neden oluştu ({ cause: '' })
+        stack: error.stack, // Hata orjinal çıktısı
+    })
+}
+
+// Error handler son middleware olmalı.
+app.use(errorHandler)
+
+/* ------------------------------------------------------- */
+app.listen(PORT, () => console.log("Running: http://127.0.0.1:" + PORT));
