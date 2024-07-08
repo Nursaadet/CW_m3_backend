@@ -102,3 +102,46 @@ router.get('/', async (req, res) => {
 
 // CRUD: Create Read Update Delete
 
+// CREATE TODO:
+router.post('/', async (req, res) => {
+
+    // const receivedData = req.body
+    // // console.log(receivedData)
+
+    // const data = await Todo.create({
+    //     title: receivedData.title,
+    //     description: receivedData.description,
+    //     priority: receivedData.priority,
+    //     isDone: receivedData.isDone
+    // })
+    // // console.log(data)
+
+    const data = await Todo.create(req.body)
+    // console.log(data)
+
+    res.status(201).send({
+        error: false,
+        result: data.dataValues
+    })
+
+})
+
+app.use(router)
+
+/* ------------------------------------------------------- */
+/* ------------------------------------------------------- */
+/* ------------------------------------------------------- */
+
+const errorHandler = (err, req, res, next) => {
+    const errorStatusCode = res.errorStatusCode ?? 500
+    console.log('errorHandler worked.')
+    res.status(errorStatusCode).send({
+        error: true, // special data
+        message: err.message, // error string message
+        cause: err.cause, // error option cause
+        // stack: err.stack, // error details
+    })
+}
+app.use(errorHandler)
+/* ------------------------------------------------------- */
+app.listen(PORT, () => console.log("Running: http://127.0.0.1:" + PORT));
