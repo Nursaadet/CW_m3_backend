@@ -3,4 +3,8 @@
 	// https://www.mongodb.com/docs/manual/reference/sql-comparison/
 	// https://www.w3schools.com/mongodb/index.php
 
-	
+	/* General */
+	// help
+	help
+	// clearScreen:
+	cls // console.clear()
