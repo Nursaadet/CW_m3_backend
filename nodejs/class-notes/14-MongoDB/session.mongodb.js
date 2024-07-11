@@ -8,3 +8,9 @@
 	help
 	// clearScreen:
 	cls // console.clear()
+
+	// exit from mongosh:
+	exit // exit() // .exit
+	quit // quit()
+
+	
