@@ -19,3 +19,13 @@
 	use('newdb') // use newdb
 	// Drop/Reset:
 	db.dropDatabase()
+
+
+	/* Collections (Tables) */
+	// mongodb.com/docs/manual/reference/method/js-collection/
+	show('collections') // show collections // show tables
+	db.getCollectionNames() // List by array.
+	db.getCollectionInfos() // List by array with details.
+	db.createCollection('collName') // Create
+	db.collName.renameCollection('collName2') // Update
+	db.collName2.drop() // Drop
