@@ -13,4 +13,9 @@
 	exit // exit() // .exit
 	quit // quit()
 
-	
+	/* Databases */
+	show('dbs') // show dbs // show databases
+	// Create/Swicth to Database:
+	use('newdb') // use newdb
+	// Drop/Reset:
+	db.dropDatabase()
